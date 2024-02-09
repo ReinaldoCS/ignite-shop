@@ -2,23 +2,23 @@ import { styled } from '@stitches/react'
 
 export const HomeContainer = styled('main', {
   display: 'flex',
-  gap: '3rem',
+  // gap: '3rem',
   width: '100%',
   maxWidth: 'calc(1180px + ((100vw - 1180px) / 2))',
   marginLeft: 'auto',
-  minHeight: 656,
 })
 
 export const Product = styled('a', {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
   borderRadius: 8,
-  padding: '0.25rem',
+  // padding: '0.25rem',
   cursor: 'pointer',
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   overflow: 'hidden',
+  minWidth: '32.5rem',
 
   img: {
     objectFit: 'cover',
