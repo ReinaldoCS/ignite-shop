@@ -21,6 +21,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.1.0",
+    "eslint-plugin-simple-import-sort": "^11.0.0",
     "typescript": "^5"
   }
 }
