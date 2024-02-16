@@ -18,6 +18,7 @@ interface ProductProps {
     imageUrl: string
     price: string | 0 | null
     description: string | null
+    defaultPriceId: string
   }
 }
 
@@ -27,6 +28,10 @@ interface ProductsParams extends ParsedUrlQuery {
 
 export default function Product({ product }: ProductProps) {
   const { isFallback } = useRouter()
+
+  function handleBuyProduct() {
+    console.log(product.defaultPriceId)
+  }
 
   if (isFallback) {
     // Aplicar load skeleton
@@ -44,7 +49,7 @@ export default function Product({ product }: ProductProps) {
         <span>{product.price}</span>
         <p>{product.description}</p>
 
-        <button>Comprar agora</button>
+        <button onClick={handleBuyProduct}>Comprar agora</button>
       </ProductDetails>
     </ProductContainer>
   )
@@ -81,6 +86,7 @@ export const getStaticProps: GetStaticProps<
         currency: price.currency,
       }).format(price.unit_amount / 100),
     description: response.description,
+    defaultPriceId: price.id,
   }
 
   return {
