@@ -7,7 +7,15 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const priceId = 'price_1OjgObHbTRtg74QN6xNwc4U3'
+  const { priceId } = req.body
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed.' })
+  }
+
+  if (!priceId) {
+    return res.status(400).json({ error: 'Missing priceId.' })
+  }
 
   const successUrl = `${env.NEXT_URL}/success`
   const cancelUrl = `${env.NEXT_URL}/`
